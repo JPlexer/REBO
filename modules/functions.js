@@ -1,19 +1,16 @@
 //functions.js
-const Discord = require('discord.js');
-
-const args = message.content.split(' ').slice(1).join(" ");
 
 module.exports = {
     description: "Functions for Basic Commands",
     getRandom: function () {
-        if (args.length == 1) {
-            if (typeof args[0] == Array) {
-                var random = Math.floor(Math.random() * 1000) % args[0].length;
-                return args[0][random];
+        if (arguments.length == 1) {
+            if (typeof arguments[0] == Array) {
+                var random = Math.floor(Math.random() * 1000) % arguments[0].length;
+                return arguments[0][random];
             }
         } else {
-            var random = Math.floor(Math.random() * 1000) % args.length;
-            return args[random];
+            var random = Math.floor(Math.random() * 1000) % arguments.length;
+            return arguments[random];
         }
     },
 }
