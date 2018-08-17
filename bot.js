@@ -14,11 +14,22 @@ const clbot = new cleverbot(process.env.CL_USER, process.env.CL_TOKEN);
 const guilds = {};
 const functions = require("./modules/functions.js")
 
+function setGame() {
+  client.user.setActivity(functions.getRandom(
+      "with my Users",
+      "Annoying JPlexer",
+      `${prefix}help`,
+      `${botver}`,
+      `${botver}`,
+      `${prefix}help`), {
+      type: "PLAYING"
+  });
+}
 
 client.on('ready', () => {
   console.log('Ready!')
-  client.setInterval(functions.setGame(), 30000);
-  functions.setGame();
+  client.setInterval(setGame(), 30000);
+  setGame();
   clbot.setNick(`${branch}`);
 });
 
