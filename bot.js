@@ -28,7 +28,6 @@ function setGame() {
 
 client.on('ready', () => {
   console.log('Ready!')
-  console.log(setGame)
   client.setInterval(setGame, 30000);
   setGame();
   clbot.setNick(`${branch}`);
