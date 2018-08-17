@@ -18,7 +18,7 @@ const functions = require("./modules/functions.js")
 client.on('ready', () => {
   console.log('Ready!')
   console.log(functions.setGame)
-  client.setInterval(functions.setGame, 30000);
+  client.setInterval(functions.setGame(), 30000);
   functions.setGame();
   clbot.setNick(`${branch}`);
 });
