@@ -13,8 +13,8 @@ const yt_api_key = process.env.YT_TOKEN;
 const clbot = new cleverbot(process.env.CL_USER, process.env.CL_TOKEN);
 const guilds = {};
 const functions = require("./modules/functions.js")
+const setGame = functions.setGame();
 
-const setGame = functions.setGame
 client.on('ready', () => {
   console.log('Ready!')
   console.log(functions.setGame)
@@ -167,7 +167,7 @@ client.on('message', message => {
     guilds[message.guild.id].queue = [guilds[message.guild.id].queue.slice(0, 1)];
     guilds[message.guild.id].queueNames = [guilds[message.guild.id].queueNames.slice(0, 1)];
     message.reply("cleared the queue!");
-}
+  }
 });
 
 
