@@ -1,5 +1,8 @@
 //functions.js
+const Discord = require('discord.js');
+
 const args = message.content.split(' ').slice(1).join(" ");
+
 module.exports = {
     description: "Functions for Basic Commands",
     getRandom: function () {
@@ -12,6 +15,5 @@ module.exports = {
             var random = Math.floor(Math.random() * 1000) % args.length;
             return args[random];
         }
-
     },
 }
