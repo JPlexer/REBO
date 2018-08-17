@@ -17,7 +17,7 @@ const functions = require("./modules/functions.js")
 
 client.on('ready', () => {
   console.log('Ready!')
-  client.setInterval(functions.setGame, 30000);
+  client.setInterval(functions.setGame(), 30000);
   functions.setGame();
   clbot.setNick(`${branch}`);
 });
@@ -29,8 +29,6 @@ client.on('message', message => {
   //just some Variables
   const lc = message.content.toLowerCase();
   const args = message.content.split(' ').slice(1).join(" ");
-  const member = message.member;
-
 
   if (!guilds[message.guild.id]) {
     guilds[message.guild.id] = {
