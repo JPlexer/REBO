@@ -14,16 +14,3 @@ module.exports.getRandom =
             return args[random];
         }
     }
-
-module.exports.setgame =
-    function () {
-        client.user.setActivity(getRandom(
-            "with my Users",
-            "Annoying JPlexer",
-            `${prefix}help`,
-            `${botver}`,
-            `${botver}`,
-            `${prefix}help`), {
-            type: "PLAYING"
-        });
-    }
