@@ -25,6 +25,6 @@ module.exports = {
                 `${prefix}help`), {
                 type: "PLAYING"
             });
-        }),
-    "lol"}
+        }, )
+    }
 }
