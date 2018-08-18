@@ -14,15 +14,17 @@ module.exports = {
             return arguments[random];
         }
     },
-    setGame: function (ready) {
-        client.user.setActivity(getRandom(
-            "with my Users",
-            "Annoying JPlexer",
-            `${prefix}help`,
-            `${botver}`,
-            `${botver}`,
-            `${prefix}help`), {
-            type: "PLAYING"
-        });
-    }
+    setGame: function () {
+        client.on('ready', () => {
+            client.user.setActivity(getRandom(
+                "with my Users",
+                "Annoying JPlexer",
+                `${prefix}help`,
+                `${botver}`,
+                `${botver}`,
+                `${prefix}help`), {
+                type: "PLAYING"
+            });
+        }),
+    "lol"}
 }
