@@ -1,5 +1,6 @@
 //functions.js
-
+const Discord = require('discord.js');
+const client = new Discord.Client();
 module.exports = {
     description: "Functions for Basic Commands",
     getRandom: function () {
