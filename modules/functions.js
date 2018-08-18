@@ -14,7 +14,7 @@ module.exports = {
             return arguments[random];
         }
     },
-    setGame: function () {
+    setGame: client.on('ready', () => {
         client.user.setActivity(getRandom(
             "with my Users",
             "Annoying JPlexer",
@@ -24,5 +24,5 @@ module.exports = {
             `${prefix}help`), {
             type: "PLAYING"
         });
-    }
+    }),
 }
