@@ -1,6 +1,6 @@
 //functions.js
 module.exports = {
-    description: "Functions for Basic Commands",
+    description: "Functions for Basic Commandss",
     getRandom: function () {
         if (arguments.length == 1) {
             if (typeof arguments[0] == Array) {
