@@ -1,4 +1,6 @@
 //functions.js
+const Discord = require('discord.js');
+const client = new Discord.Client();
 module.exports = {
     description: "Functions for Basic Commands",
     getRandom: function () {
@@ -14,5 +16,11 @@ module.exports = {
     },
     prefix: "rebo_",
     botver: "v.1.0.0",
-    branch: "REBO"
+    branch: "REBO",
+      args: function (message){
+        message.content.split(' ').slice(1).join(" ");
+      },
+      lc: function (message){
+        message.content.toLowerCase();
+      },
 }

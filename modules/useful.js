@@ -21,13 +21,13 @@ module.exports = {
     help: function (message) {
         embed = new Discord.RichEmbed();
         embed.setColor("#00FFFB");
-        embed.setAuthor(`${branch} Help`);
-        embed.setDescription(`You can use this Commands with ${branch}. Just type ${prefix}[command]`);
-        embed.addField("Fun & Play Commands", `ping\npong\npizza\nhelp\nPing ${branch} at the beginning of a Message to chat with him`, true);
+        embed.setAuthor(`${functions.branch} Help`);
+        embed.setDescription(`You can use this Commands with ${functions.branch}. Just type ${functions.prefix}[command]`);
+        embed.addField("Fun & Play Commands", `ping\npong\npizza\nhelp\nPing ${functions.branch} at the beginning of a Message to chat with him`, true);
         embed.addField("Music Commands", "play\nskip\nstop\nclear\nqueue", true);
 
 
-        embed.setFooter(`${branch} by JPlexer ${botver}`);
+        embed.setFooter(`${functions.branch} by JPlexer ${functions.botver}`);
         message.channel.send("", {
             embed
         });
@@ -39,5 +39,8 @@ module.exports = {
                 message.channel.send(response)
             });
         });
+    },
+    clstart: function () {
+        clbot.setNick(`${functions.branch}`);
     },
 }
