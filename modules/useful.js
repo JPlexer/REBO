@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const func = require("./modules/functions.js")
+const functions = require("./modules/functions.js")
 module.exports = {
     setGame: function () {
         client.user.setActivity(func.getRandom(
