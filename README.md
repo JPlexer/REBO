@@ -2,4 +2,4 @@
 REfresh whyBOt
 ------------------------------------------------------------------------------------------------------
 
-I am going to make WhyBot Smother
+I am going to make WhyBot's code cleaner
