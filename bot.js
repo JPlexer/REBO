@@ -9,22 +9,21 @@ const request = require("request");
 const fs = require("fs");
 const getYouTubeID = require("get-youtube-id");
 const fetchVideoInfo = require("youtube-info");
-const yt_api_key = process.env.YT_TOKEN;
-const clbot = new cleverbot(process.env.CL_USER, process.env.CL_TOKEN);
 const guilds = {};
-const functions = require("./modules/functions.js")
-const setGame = functions.setGame();
+const usef = require("./modules/useful.js")
+const setGamef = usef.setGame();
+
+const clbot = new cleverbot(process.env.CL_USER, process.env.CL_TOKEN);
+client.login(process.env.BOT_TOKEN);
+const yt_api_key = process.env.YT_TOKEN;
 
 client.on('ready', () => {
   console.log('Ready!')
-  console.log(functions.setGame)
-  client.setInterval(setGame, 30000);
-  setGame();
+  console.log(setGamef)
+  client.setInterval(setGamef, 30000);
+  setGamef();
   clbot.setNick(`${branch}`);
 });
-
-
-client.login(process.env.BOT_TOKEN);
 
 client.on('message', message => {
   //just some Variables

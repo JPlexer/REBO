@@ -1,7 +1,4 @@
 //functions.js
-const Discord = require('discord.js');
-const client = new Discord.Client();
-
 module.exports = {
     description: "Functions for Basic Commands",
     getRandom: function () {
@@ -15,15 +12,4 @@ module.exports = {
             return arguments[random];
         }
     },
-    setGame: function () {
-        client.user.setActivity(getRandom(
-            "with my Users",
-            "Annoying JPlexer",
-            `${prefix}help`,
-            `${botver}`,
-            `${botver}`,
-            `${prefix}help`), {
-            type: "PLAYING"
-        });
-    }
 }
