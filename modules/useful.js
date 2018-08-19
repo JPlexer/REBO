@@ -3,7 +3,6 @@ const client = new Discord.Client();
 const functions = require("./functions.js")
 module.exports = {
     setGame: function () {
-        client.on('ready', () => {
             client.user.setActivity(functions.getRandom(
                 "with my Users",
                 "Annoying JPlexer",
@@ -14,6 +13,5 @@ module.exports = {
                 type: "PLAYING"
             });
             console.log(client.user.presence.game.name);
-        })
     }
 }
