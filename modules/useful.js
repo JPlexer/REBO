@@ -15,5 +15,6 @@ module.exports = {
     },
     ping: function (message) {
         message.channel.send(`:ping_pong:Pong! Your ping is \`${`${Date.now() - message.createdTimestamp}`} ms\``);
+    console.log(message)
     },
 }
