@@ -1,8 +1,7 @@
 //functions.js
 const Discord = require('discord.js');
 const client = new Discord.Client();
-var events = require('events');
-var evente = new events.EventEmitter();
+
 module.exports = {
     description: "Functions for Basic Commands",
     getRandom: function () {
@@ -17,16 +16,14 @@ module.exports = {
         }
     },
     setGame: function () {
-        evente.on('ready', () => {
-            client.user.setActivity(getRandom(
-                "with my Users",
-                "Annoying JPlexer",
-                `${prefix}help`,
-                `${botver}`,
-                `${botver}`,
-                `${prefix}help`), {
-                type: "PLAYING"
-            });
-        }, )
+        client.user.setActivity(getRandom(
+            "with my Users",
+            "Annoying JPlexer",
+            `${prefix}help`,
+            `${botver}`,
+            `${botver}`,
+            `${prefix}help`), {
+            type: "PLAYING"
+        });
     }
 }
