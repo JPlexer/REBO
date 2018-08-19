@@ -44,7 +44,7 @@ client.on('message', message => {
 
   //tells you your ping
   if (lc === `${prefix}ping`) {
-    usef.ping();
+    usef.ping(message);
 
 
 
