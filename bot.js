@@ -23,8 +23,8 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-  const lc = func.lc(message)
-  const args = func.args(message)
+  const lc = message.content.toLowerCase();
+  const args = message.content.split(' ').slice(1).join(" ");
 
 if (!guilds[message.guild.id]) {
     guilds[message.guild.id] = {

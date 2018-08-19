@@ -17,10 +17,4 @@ module.exports = {
     prefix: "rebo_",
     botver: "v.1.0.0",
     branch: "REBO",
-      args: function (message){
-        message.content.split(' ').slice(1).join(" ");
-      },
-      lc: function (message){
-        message.content.toLowerCase();
-      },
 }
