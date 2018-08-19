@@ -13,7 +13,7 @@ module.exports = {
             type: "PLAYING"
         });
     },
-    ping:function () { 
+    ping:function (message) { 
         message.channel.send(`:ping_pong:Pong! Your ping is \`${`${Date.now() - message.createdTimestamp}`} ms\``);
 },
 }
