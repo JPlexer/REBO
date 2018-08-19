@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const cleverbot = require("cleverbot.io");
-const func = require("./functions.js")
+const func = require("./modules/functions.js")
 const prefix = func.prefix;
 const botver = func.botver;
 const branch = func.branch;
