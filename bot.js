@@ -42,7 +42,7 @@ if (!guilds[message.guild.id]) {
     usef.ping(message);
 
   } else if (lc === `${prefix}pong`) {
-    nousef.help(message);
+    nousef.pong(message);
 
   } else if (lc === `${prefix}help`) {
     usef.help(message);
