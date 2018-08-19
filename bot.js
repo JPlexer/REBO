@@ -11,6 +11,7 @@ const request = require("request");
 const fs = require("fs");
 const getYouTubeID = require("get-youtube-id");
 const yt_api_key = process.env.YT_TOKEN;
+const guilds = {};
 
 client.login(process.env.BOT_TOKEN);
 
