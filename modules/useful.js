@@ -13,6 +13,7 @@ module.exports = {
                 `${prefix}help`), {
                 type: "PLAYING"
             });
+            console.log(client.user.presence.game.name);
         })
     }
 }
