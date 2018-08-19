@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const functions = require("./functions.js")
 module.exports = {
-    setGame: function () {
+    setGame: function (client) {
             client.user.setActivity(functions.getRandom(
                 "with my Users",
                 "Annoying JPlexer",

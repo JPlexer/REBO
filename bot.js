@@ -20,7 +20,7 @@ const yt_api_key = process.env.YT_TOKEN;
 client.on('ready', () => {
   console.log('Ready!')
   client.setInterval(setGamef, 30000);
-  setGamef();
+  setGamef(client);
   clbot.setNick(`${branch}`);
 });
 
