@@ -44,7 +44,7 @@ client.on('message', message => {
 
   //tells you your ping
   if (lc === `${prefix}ping`) {
-    message.channel.send(`:ping_pong:Pong! Your ping is \`${`${Date.now() - message.createdTimestamp}`} ms\``);
+    usef.ping();
 
 
 
