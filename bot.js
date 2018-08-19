@@ -9,7 +9,6 @@ const fetchVideoInfo = require("youtube-info");
 const ytdl = require("ytdl-core");
 const request = require("request");
 const fs = require("fs");
-const ffmpeg = require("ffmpeg-binaries");
 const getYouTubeID = require("get-youtube-id");
 const yt_api_key = process.env.YT_TOKEN;
 const guilds = {};
