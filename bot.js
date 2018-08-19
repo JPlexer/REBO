@@ -11,7 +11,7 @@ const getYouTubeID = require("get-youtube-id");
 const fetchVideoInfo = require("youtube-info");
 const guilds = {};
 const usef = require("./modules/useful.js")
-const setGamef = usef.setGame();
+const setGamef = usef.setGame
 
 const clbot = new cleverbot(process.env.CL_USER, process.env.CL_TOKEN);
 client.login(process.env.BOT_TOKEN);
