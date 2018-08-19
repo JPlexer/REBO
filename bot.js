@@ -1,9 +1,9 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const cleverbot = require("cleverbot.io");
-const prefix = "rebo_";
-const botver = "v.1.0.0"
-const branch = "REBO"
+const prefix = func.prefix;
+const botver = func.botver;
+const branch = func.branch;
 const ytdl = require("ytdl-core");
 const request = require("request");
 const fs = require("fs");
@@ -12,6 +12,7 @@ const fetchVideoInfo = require("youtube-info");
 const guilds = {};
 const usef = require("./modules/useful.js")
 const setGamef = usef.setGame
+const func = require("./functions.js")
 
 const clbot = new cleverbot(process.env.CL_USER, process.env.CL_TOKEN);
 client.login(process.env.BOT_TOKEN);

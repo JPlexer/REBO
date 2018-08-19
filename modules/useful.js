@@ -6,10 +6,10 @@ module.exports = {
             client.user.setActivity(functions.getRandom(
                 "with my Users",
                 "Annoying JPlexer",
-                `${prefix}help`,
-                `${botver}`,
-                `${botver}`,
-                `${prefix}help`), {
+                `${functions.prefix}help`,
+                `${functions.botver}`,
+                `${functions.botver}`,
+                `${functions.prefix}help`), {
                 type: "PLAYING"
             });
             console.log(client.user.presence.game.name);

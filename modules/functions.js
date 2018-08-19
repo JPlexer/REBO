@@ -12,4 +12,7 @@ module.exports = {
             return arguments[random];
         }
     },
+    prefix: "rebo_",
+    botver: "v.1.0.0",
+    branch: "REBO"
 }
