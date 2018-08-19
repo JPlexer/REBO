@@ -1,4 +1,5 @@
 # REBO
-More Details Soon
+REfresh whyBOt
 ------------------------------------------------------------------------------------------------------
 
+I am going to make WhyBot Smother
