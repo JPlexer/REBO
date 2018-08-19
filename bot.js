@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const cleverbot = require("cleverbot.io");
 const func = require("./modules/functions.js")
 const prefix = func.prefix;
 const botver = func.botver;
@@ -12,9 +11,10 @@ const getYouTubeID = require("get-youtube-id");
 const fetchVideoInfo = require("youtube-info");
 const guilds = {};
 const usef = require("./modules/useful.js")
+const nousef = require("./modules/nouseful.js")
 const setGamef = usef.setGame
 
-const clbot = new cleverbot(process.env.CL_USER, process.env.CL_TOKEN);
+
 client.login(process.env.BOT_TOKEN);
 const yt_api_key = process.env.YT_TOKEN;
 
@@ -42,53 +42,23 @@ client.on('message', message => {
     };
   }
 
-  //tells you your ping
   if (lc === `${prefix}ping`) {
     usef.ping(message);
 
-
-
-    //just a fun feature 'tells you your pong'
-
   } else if (lc === `${prefix}pong`) {
-    message.channel.send(`:ping_pong:Ping! Your pong is \`${`${message.createdTimestamp - Date.now()}`} ms\``);
+    nousef.help(message);
 
-
-
-    //the help
   } else if (lc === `${prefix}help`) {
-    embed = new Discord.RichEmbed();
-    embed.setColor("#00FFFB");
-    embed.setAuthor(`${branch} Help`);
-    embed.setDescription(`You can use this Commands with ${branch}. Just type ${prefix}[command]`);
-    embed.addField("Fun & Play Commands", `ping\npong\npizza\nhelp\nPing ${branch} at the beginning of a Message to chat with him`, true);
-    embed.addField("Music Commands", "play\nskip\nstop\nclear\nqueue", true);
+    usef.help(message);
 
-
-    embed.setFooter(`${branch} by JPlexer ${botver}`);
-    message.channel.send("", {
-      embed
-    });
-    return true;
-
-
-
-    //just a fun pizza feature
   } else if (lc === `${prefix}pizza`) {
-    message.channel.send('Here is your Pizza! :pizza: ')
+    nousef.pizza(message);
 
-    //Cleverbot 
   } else if (message.isMentioned(client.user)) {
-    clbot.create((err, session) => {
-      clbot.ask(message.content, (err, response) => {
-        message.channel.send(response)
-      });
-    });
+    usef.clev(message);
 
-
-    //dont tell anyone about this
   } else if (lc === `${prefix}lol`) {
-    message.channel.send(':scream: You found the Secret :scream:');
+    nousef.lol(message);
 
     //This is the Music Part of the Bot
   } else if (lc.startsWith(`${prefix}play`)) {

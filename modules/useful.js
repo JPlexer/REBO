@@ -1,6 +1,8 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const functions = require("./functions.js")
+const cleverbot = require("cleverbot.io");
+const clbot = new cleverbot(process.env.CL_USER, process.env.CL_TOKEN);
 module.exports = {
     setGame: function (client) {
         client.user.setActivity(functions.getRandom(
@@ -15,5 +17,27 @@ module.exports = {
     },
     ping: function (message) {
         message.channel.send(`:ping_pong:Pong! Your ping is \`${`${Date.now() - message.createdTimestamp}`} ms\``);
+    },
+    help: function (message) {
+        embed = new Discord.RichEmbed();
+        embed.setColor("#00FFFB");
+        embed.setAuthor(`${branch} Help`);
+        embed.setDescription(`You can use this Commands with ${branch}. Just type ${prefix}[command]`);
+        embed.addField("Fun & Play Commands", `ping\npong\npizza\nhelp\nPing ${branch} at the beginning of a Message to chat with him`, true);
+        embed.addField("Music Commands", "play\nskip\nstop\nclear\nqueue", true);
+
+
+        embed.setFooter(`${branch} by JPlexer ${botver}`);
+        message.channel.send("", {
+            embed
+        });
+        return true;
+    },
+    clev: function (message) {
+        clbot.create((err, session) => {
+            clbot.ask(message.content, (err, response) => {
+                message.channel.send(response)
+            });
+        });
     },
 }
