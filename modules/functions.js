@@ -23,13 +23,13 @@ module.exports = {
     prefix: "rebo_",
     botver: "v.1.0.0",
     branch: "REBO",
-    skip_song = function ({
+    skip_song: function ({
         guild
       }) {
         guilds[guild.id].dispatcher.end();
       },
       
-      stop_song = function({
+      stop_song: function({
         guild
       }) {
         guilds[guild.id].queue.length = 0;
@@ -37,7 +37,7 @@ module.exports = {
       },
       
       
-      playMusic = function (id, message) {
+      playMusic: function (id, message) {
         guilds[message.guild.id].voiceChannel = message.member.voiceChannel;
       
       
@@ -68,7 +68,7 @@ module.exports = {
         });
       },
       
-      getID = function(str, cb, message) {
+      getID: function(str, cb, message) {
         if (isYoutube(str)) {
           cb(getYouTubeID(str));
         } else {
@@ -78,7 +78,7 @@ module.exports = {
         }
       },
       
-      add_to_queue = function (strID, {
+      add_to_queue: function (strID, {
         guild
       }) {
         if (isYoutube(strID)) {
@@ -88,11 +88,11 @@ module.exports = {
         }
       },
       
-      isYoutube = function (str) {
+      isYoutube: function (str) {
         return str.toLowerCase().includes("youtube.com");
       },
       
-      search_video = function (query, callback) {
+      search_video: function (query, callback) {
         request(`https://www.googleapis.com/youtube/v3/search?part=id&type=video&q=${encodeURIComponent(query)}&key=${yt_api_key}`, (error, response, body) => {
           const json = JSON.parse(body);
           if (!json.items[0]) callback("3_-a9nVZYjk");
