@@ -52,7 +52,7 @@ client.on('message', message => {
     nousef.lol(message);
 
   } else if (lc.startsWith(`${prefix}play`)) {
-    music.play(message, guilds);
+    music.play(message, guilds, args);
 
   } else if (lc.startsWith(`${prefix}skip`)) {
     music.skip(message, guilds);
