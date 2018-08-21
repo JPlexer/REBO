@@ -6,7 +6,7 @@ const getYouTubeID = require("get-youtube-id");
 const yt_api_key = process.env.YT_TOKEN;
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const mus = require("./modules/music.js")
+const mus = require("./music.js")
 module.exports = {
   description: "Functions for Basic Commands",
   getRandom: function () {
