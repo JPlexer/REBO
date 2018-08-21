@@ -6,6 +6,7 @@ const getYouTubeID = require("get-youtube-id");
 const yt_api_key = process.env.YT_TOKEN;
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const mus = require("./modules/music.js")
 module.exports = {
   description: "Functions for Basic Commands",
   getRandom: function () {
@@ -80,15 +81,11 @@ module.exports = {
   add_to_queue: function (strID, {
     guilds
   }) {
-    if (isYoutube(strID)) {
+    if (mus.isYoutube(strID)) {
       guilds[guild.id].queue.push(getYoutubeID(strID));
     } else {
       guilds[guild.id].queue.push(strID);
     }
-  },
-
-  isYoutube: function (str, guilds) {
-    return str.toLowerCase().includes("youtube.com");
   },
 
   search_video: function (query, callback, guilds) {
