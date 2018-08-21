@@ -10,4 +10,7 @@ module.exports = {
     lol: function (message) {
         message.channel.send(':scream: You found the Secret :scream:');
     },
+    isYoutube: function (str, guilds) {
+        return str.toLowerCase().includes("youtube.com");
+    },
 }
