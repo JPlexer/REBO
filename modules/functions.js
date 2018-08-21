@@ -68,7 +68,7 @@ module.exports = {
     });
   },
 
-  getID: function (str, cb, message, guilds) {
+    getID: function (str, cb) {
     if (isYoutube(str)) {
       cb(getYouTubeID(str));
     } else {
