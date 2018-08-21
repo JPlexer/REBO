@@ -52,18 +52,18 @@ client.on('message', message => {
     nousef.lol(message);
 
   } else if (lc.startsWith(`${prefix}play`)) {
-    music.play(message);
+    music.play(message, guilds);
 
   } else if (lc.startsWith(`${prefix}skip`)) {
-    music.skip(message);
+    music.skip(message, guilds);
 
   } else if (lc.startsWith(`${prefix}queue`)) {
-    music.queue(message);
+    music.queue(message, guilds);
 
   } else if (lc === `${prefix}stop`) {
-    music.stop(message);
+    music.stop(message, guilds);
 
   } else if (lc.startsWith(`${prefix}clear`)) {
-    music.clear(message);
+    music.clear(message, guilds);
   }
 });
