@@ -43,4 +43,7 @@ module.exports = {
     clstart: function () {
         clbot.setNick(`${functions.branch}`);
     },
+    isYoutube: function (str, guilds) {
+        return str.toLowerCase().includes("youtube.com");
+    },
 }

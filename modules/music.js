@@ -78,7 +78,4 @@ module.exports = {
     guilds[message.guild.id].queueNames = [guilds[message.guild.id].queueNames.slice(0, 1)];
     message.reply("cleared the queue!");
   },
-  isYoutube: function (str, guilds) {
-    return str.toLowerCase().includes("youtube.com");
-  },
 }
