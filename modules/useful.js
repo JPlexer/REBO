@@ -41,7 +41,7 @@ module.exports = {
             if (typeof evaled !== "string")
                 evaled = require("util").inspect(evaled);
 
-            message.channel.send(clean(evaled), {
+            message.channel.send(func.clean(evaled), {
                 code: "xl"
             });
         } catch (err) {
