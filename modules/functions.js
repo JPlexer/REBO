@@ -71,7 +71,7 @@ module.exports = {
           guilds[message.guild.id].voiceChannel.leave();
         } else {
           setTimeout(() => {
-            playMusic(guilds[message.guild.id].queue[0], message);
+            playMusic(guilds[message.guild.id].queue[0], id, message, guilds);
           }, 500)
         }
       })
@@ -82,7 +82,7 @@ module.exports = {
     if (module.exports.isYoutube(str)) {
       cb(getYouTubeID(str));
     } else {
-      module.exports.search_video(str, id => {
+      module.exports.search_video(id, query, callback, guilds, str, id => {
         cb(id);
       });
     }
@@ -91,7 +91,7 @@ module.exports = {
   add_to_queue: function (id, strID, guilds, {
     guild
   }) {
-    if (module.exports.isYoutube(strID)) {
+    if (module.exports.isYoutube(str, strID)) {
       guilds[guild.id].queue.push(getYoutubeID(strID));
     } else {
       guilds[guild.id].queue.push(strID);
