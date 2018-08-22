@@ -5,7 +5,19 @@ const cleverbot = require("cleverbot.io");
 const clbot = new cleverbot(process.env.CL_USER, process.env.CL_TOKEN);
 module.exports = {
     ping: function (message) {
-        message.channel.send(`:ping_pong:Pong! Your ping is \`${`${Date.now() - message.createdTimestamp}`} ms\``);
+        embed = new Discord.RichEmbed();
+        embed.setColor("#00FFFB");
+        embed.setAuthor(`${functions.branch}`);
+        embed.setDescription(`Ping`);
+        embed.addField(`Your ping is \`${`${Date.now() - message.createdTimestamp}`} ms\``, true);
+        embed.addField("Music Commands", "play\nskip\nstop\nclear\nqueue", true);
+
+
+        embed.setFooter(`${functions.branch} by JPlexer ${functions.botver}`);
+        message.channel.send("", {
+            embed
+        });
+        return true;
     },
     help: function (message) {
         embed = new Discord.RichEmbed();
