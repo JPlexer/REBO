@@ -6,9 +6,10 @@ module.exports = {
             return text;
     }
       },
-    eval: function(message) {
-        const args = message.content.split(" ").slice(1);
-        ​
+      args: function(message){
+        message.content.split(" ").slice(1);
+      },
+        eval: function(message) {
             if(message.author.id !== 348065394520621067) return;
             try {
               const code = args.join(" ");
