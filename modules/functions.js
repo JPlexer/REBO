@@ -19,6 +19,18 @@ module.exports = {
       return arguments[random];
     }
   },
+  setGame: function (client) {
+    client.user.setActivity(this.getRandom(
+      "with my Users",
+      "Annoying JPlexer",
+      `${this.prefix}help`,
+      `${this.botver}`,
+      `${this.botver}`,
+      `${this.prefix}help`), {
+      type: "PLAYING"
+    });
+    console.log(setGame)
+  },
   prefix: "rebo_",
   botver: "v.1.0.0",
   branch: "REBO",
