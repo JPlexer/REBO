@@ -20,6 +20,7 @@ client.on('ready', () => {
 client.on('message', message => {
   const lc = message.content.toLowerCase();
   const args = message.content.split(' ').slice(1).join(" ");
+  const args2 = message.content.split(' ').slice(1).join(" ");
 
   if (!guilds[message.guild.id]) {
     guilds[message.guild.id] = {
@@ -51,8 +52,8 @@ client.on('message', message => {
   } else if (lc === `${prefix}lol`) {
     nousef.lol(message);
 
-  } else if (lc.startsWith === `${prefix}eval`) {
-    evil.eval(message);
+  } else if (lc.startsWith (`${prefix}eval`)) {
+    evil(message, client, args2);
 
 } else if (lc.startsWith(`${prefix}play`)) {
   if (message.member.voiceChannel || guilds[message.guild.id].voiceChannel != null) {
