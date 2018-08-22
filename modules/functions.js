@@ -72,7 +72,7 @@ module.exports = {
     if (this.isYoutube(str)) {
       cb(getYouTubeID(str));
     } else {
-      search_video(str, id => {
+      this.search_video(str, id => {
         cb(id);
       });
     }
