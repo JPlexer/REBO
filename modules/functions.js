@@ -23,14 +23,14 @@ module.exports = {
   prefix: "rebo_",
   botver: "v.1.0.0",
   branch: "REBO",
-  skip_song: function ({
-    guilds
+  skip_song: function (guilds,{
+    guild
   }) {
     guilds[guild.id].dispatcher.end();
   },
 
-  stop_song: function ({
-    guilds
+  stop_song: function (guilds,{
+    guild
   }) {
     guilds[guild.id].queue.length = 0;
     guilds[guild.id].dispatcher.end();
@@ -78,8 +78,8 @@ module.exports = {
     }
   },
 
-  add_to_queue: function (strID, {
-    guilds
+  add_to_queue: function (strID, guilds, {
+    guild
   }) {
     if (this.isYoutube(strID)) {
       guilds[guild.id].queue.push(getYoutubeID(strID));
