@@ -22,7 +22,7 @@ module.exports = {
       isPlaying = true;
       this.getID(args, id => {
         guilds[message.guild.id].queue.push(id);
-        this.playMusic(message, guilds);
+        this.playMusic(id, message, guilds);
         fetchVideoInfo(id, (err, {
           title
         }) => {
