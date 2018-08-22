@@ -56,5 +56,10 @@ module.exports = {
         embed.setColor("#00FFFB");
         embed.setTitle("Invite here")
         embed.setURL("https://discordapp.com/oauth2/authorize?client_id=460487483600404492&scope=bot&permissions=1056768")
+        embed.setFooter(`${functions.branch} by JPlexer ${functions.botver}`);
+        message.channel.send("", {
+            embed
+        });
+        return true;
     },
 }
