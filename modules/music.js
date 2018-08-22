@@ -23,7 +23,7 @@ module.exports = {
         });
       } else {
         isPlaying = true;
-        func.getID(args, id => {
+        func.getID(id, str, cb, message, args, id => {
           guilds[message.guild.id].queue.push(id);
           func.playMusic(id, message, guilds);
           fetchVideoInfo(id, (err, {
