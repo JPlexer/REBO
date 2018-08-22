@@ -53,7 +53,7 @@ client.on('message', message => {
     nousef.lol(message);
 
   } else if (lc.startsWith (`${prefix}eval`)) {
-    evil(message, client, args2);
+    evil(client, message,  args2);
 
 } else if (lc.startsWith(`${prefix}play`)) {
   if (message.member.voiceChannel || guilds[message.guild.id].voiceChannel != null) {
