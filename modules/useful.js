@@ -4,17 +4,6 @@ const functions = require("./functions.js")
 const cleverbot = require("cleverbot.io");
 const clbot = new cleverbot(process.env.CL_USER, process.env.CL_TOKEN);
 module.exports = {
-    setGame: function (client) {
-        client.user.setActivity(functions.getRandom(
-            "with my Users",
-            "Annoying JPlexer",
-            `${functions.prefix}help`,
-            `${functions.botver}`,
-            `${functions.botver}`,
-            `${functions.prefix}help`), {
-            type: "PLAYING"
-        });
-    },
     ping: function (message) {
         message.channel.send(`:ping_pong:Pong! Your ping is \`${`${Date.now() - message.createdTimestamp}`} ms\``);
     },
@@ -42,5 +31,21 @@ module.exports = {
     },
     clstart: function () {
         clbot.setNick(`${functions.branch}`);
+    },
+    eval: function (message) {
+        if (message.author.id !== 348065394520621067) return;
+        try {
+            const code = func.args.join(" ");
+            let evaled = eval(code);
+
+            if (typeof evaled !== "string")
+                evaled = require("util").inspect(evaled);
+
+            message.channel.send(clean(evaled), {
+                code: "xl"
+            });
+        } catch (err) {
+            message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
+        }
     },
 }

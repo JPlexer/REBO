@@ -19,16 +19,27 @@ module.exports = {
       return arguments[random];
     }
   },
+  setGame: function (client) {
+    client.user.setActivity(this.getRandom(
+      "with my Users",
+      "Annoying JPlexer",
+      `${this.prefix}help`,
+      `${this.botver}`,
+      `${this.botver}`,
+      `${this.prefix}help`), {
+      type: "PLAYING"
+    });
+  },
   prefix: "rebo_",
   botver: "v.1.0.0",
   branch: "REBO",
-  skip_song: function (id, guilds,{
+  skip_song: function (id, guilds, {
     guild
   }) {
     guilds[guild.id].dispatcher.end();
   },
 
-  stop_song: function (id, guilds,{
+  stop_song: function (id, guilds, {
     guild
   }) {
     guilds[guild.id].queue.length = 0;
@@ -98,5 +109,14 @@ module.exports = {
   },
   isYoutube: function (str) {
     return str.toLowerCase().includes("youtube.com");
-},
+  },
+  clean: function (text) {
+    if (typeof (text) === "string")
+      return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
+    else
+      return text;
+  },
+  args: function (message) {
+    message.content.split(" ").slice(1);
+  },
 }

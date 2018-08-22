@@ -51,6 +51,9 @@ client.on('message', message => {
   } else if (lc === `${prefix}lol`) {
     nousef.lol(message);
 
+  } else if (lc === `${prefix}eval`) {
+    usef.eval(message);
+
   } else if (lc.startsWith(`${prefix}play`)) {
     music.play(message, guilds, args);
 
