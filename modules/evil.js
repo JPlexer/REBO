@@ -29,7 +29,7 @@ const clean = text => {
     let embed = new Discord.RichEmbed()
     .addField(`:arrow_down:Input`, "***```" + code + "```***", true)
     .addField(`:arrow_up:Output`, `\`\`\`python\n${evaled}\`\`\``,)
-    .setColor("#cb36ed")//
+    .setColor("#00FFFB")//
     .setTimestamp()
 
 
