@@ -4,7 +4,7 @@ const func = require("./modules/functions.js")
 const prefix = func.prefix;
 const usef = require("./modules/useful.js")
 const nousef = require("./modules/nouseful.js")
-const evil = require("./modules/evil.js")
+const eval = require("./modules/evil.js")
 const setGamef = func.setGame
 const guilds = {};
 
@@ -43,6 +43,12 @@ client.on('message', message => {
   } else if (lc === `${prefix}help`) {
     usef.help(message);
 
+  } else if (lc === `${prefix}credits`) {
+    usef.credits(message);
+
+  } else if (lc === `${prefix}invite`) {
+    usef.invite(message);
+
   } else if (lc === `${prefix}pizza`) {
     nousef.pizza(message);
 
@@ -53,7 +59,7 @@ client.on('message', message => {
     nousef.lol(message);
 
   } else if (lc.startsWith (`${prefix}eval`)) {
-    evil(client, message,  args2);
+    eval(client, message, args2);
 
 } else if (lc.startsWith(`${prefix}play`)) {
   if (message.member.voiceChannel || guilds[message.guild.id].voiceChannel != null) {

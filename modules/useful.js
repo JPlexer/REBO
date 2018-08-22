@@ -38,4 +38,23 @@ module.exports = {
     clstart: function () {
         clbot.setNick(`${functions.branch}`);
     },
+    credits: function(message) {
+        embed = new Discord.RichEmbed();
+        embed.setColor("#00FFFB");
+        embed.setDescription(`Those People Helped Creating ${functions.branch}`);
+        embed.addField("<:jplexer:481923432280358912>JPlexer", `Created ${functions.branch} and is Developing it!`, true);
+        embed.addField("<:jyguy:481922951294353418>JYGUY", "Helped JPlexer often", true);
+        embed.addField("<:root:481923832547115028>Root's Programming Club", `Provided the Codebase for ${functions.branch}'s Music Function`, true);
+        embed.setFooter(`${functions.branch} by JPlexer ${functions.botver}`);
+        message.channel.send("", {
+            embed
+        });
+        return true;
+    },
+    invite: function(message){
+        embed = new Discord.RichEmbed();
+        embed.setColor("#00FFFB");
+        embed.setTitle("Invite here")
+        embed.setURL("https://discordapp.com/oauth2/authorize?client_id=460487483600404492&scope=bot&permissions=1056768")
+    },
 }

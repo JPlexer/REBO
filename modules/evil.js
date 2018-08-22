@@ -32,8 +32,6 @@ const clean = text => {
     .setColor("#00FFFB")//
     .setTimestamp()
 
-
-
 message.channel.send(embed);
 
     } catch (err) {
