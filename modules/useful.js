@@ -8,11 +8,12 @@ module.exports = {
         embed = new Discord.RichEmbed();
         embed.setColor("#00FFFB");
         embed.setAuthor(`Ping!`);
-        embed.addField(`Your ping is \`${`${Date.now() - message.createdTimestamp}`} ms\``);
+        embed.addField(`Your ping is \`${`${Date.now() - message.createdTimestamp}`} ms\``, true);
         embed.setFooter(`${functions.branch} by JPlexer ${functions.botver}`);
         message.channel.send("", {
             embed
         });
+        return true;
     },
     help: function (message) {
         embed = new Discord.RichEmbed();
