@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (client,message,args) => {
+module.exports = function(client,message,args2) {
     if (message.member !== 348065394520621067)return message.channel.send("**Hey, `" + message.author.username + "` You Can't use eval only JPlexer can!**");
 
 const clean = text => {
