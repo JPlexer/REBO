@@ -8,7 +8,7 @@ module.exports = {
         embed = new Discord.RichEmbed();
         embed.setColor("#00FFFB");
         embed.setAuthor(`Ping!`);
-        embed.addField(`Your ping is \`${`${Date.now() - message.createdTimestamp}`} ms\``, true);
+        embed.addField(`Your ping is \`${`${Date.now() - message.createdTimestamp}`} ms\``);
         embed.setFooter(`${functions.branch} by JPlexer ${functions.botver}`);
         message.channel.send("", {
             embed
@@ -28,16 +28,11 @@ module.exports = {
         return true;
     },
     clev: function (message) {
-        clbot.ask(message.content, (err, response) => {
-        embed = new Discord.RichEmbed();
-        embed.setColor("#00FFFB");
-        embed.setAuthor(`REBO says:`);
-        embed.addField(response);
-        embed.setFooter(`${functions.branch} by JPlexer ${functions.botver}`);
-        message.channel.send("", {
-            embed
+        clbot.create((err, session) => {
+            clbot.ask(message.content, (err, response) => {
+                message.channel.send(response)
+            });
         });
-    });
     },
     clstart: function () {
         clbot.setNick(`${functions.branch}`);
