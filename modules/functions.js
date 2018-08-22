@@ -33,13 +33,13 @@ module.exports = {
   prefix: "rebo_",
   botver: "v.1.0.0",
   branch: "REBO",
-  skip_song: function (id, guilds, {
+  skip_song: function (guilds, {
     guild
   }) {
     guilds[guild.id].dispatcher.end();
   },
 
-  stop_song: function (id, guilds, {
+  stop_song: function (guilds, {
     guild
   }) {
     guilds[guild.id].queue.length = 0;
@@ -47,7 +47,7 @@ module.exports = {
   },
 
 
-  playMusic: function (id, message, guilds) {
+  playMusic: function (message, guilds) {
     guilds[message.guild.id].voiceChannel = message.member.voiceChannel;
 
 
@@ -78,17 +78,17 @@ module.exports = {
     });
   },
 
-  getID: function (id, str, cb, message) {
+  getID: function (str, cb, message) {
     if (module.exports.isYoutube(str)) {
       cb(getYouTubeID(str));
     } else {
-      module.exports.search_video(id, query, callback, guilds, str, id => {
+      module.exports.search_video(query, callback, guilds, str, id => {
         cb(id);
       });
     }
   },
 
-  add_to_queue: function (id, strID, guilds, {
+  add_to_queue: function (strID, guilds, {
     guild
   }) {
     if (module.exports.isYoutube(str, strID)) {
@@ -98,7 +98,7 @@ module.exports = {
     }
   },
 
-  search_video: function (id, query, callback, guilds) {
+  search_video: function (query, callback, guilds) {
     request(`https://www.googleapis.com/youtube/v3/search?part=id&type=video&q=${encodeURIComponent(query)}&key=${yt_api_key}`, (error, response, body) => {
       const json = JSON.parse(body);
       if (!json.items[0]) callback("3_-a9nVZYjk");

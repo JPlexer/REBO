@@ -11,8 +11,8 @@ module.exports = {
   play: function (message, guilds, args) {
     if (message.member.voiceChannel || guilds[message.guild.id].voiceChannel != null) {
       if (guilds[message.guild.id].queue.length > 0 || guilds[message.guild.id].isPlaying) {
-        func.getID(id, str, cb, message, args, id => {
-          func.add_to_queue(id, strID, guilds);
+        func.getID(str, cb, message, args, id => {
+          func.add_to_queue(strID, guilds);
           fetchVideoInfo(id, (err, {
             title
           }) => {
@@ -23,9 +23,9 @@ module.exports = {
         });
       } else {
         isPlaying = true;
-        func.getID(id, str, cb, message, args, id => {
+        func.getID(str, cb, message, args, id => {
           guilds[message.guild.id].queue.push(id);
-          func.playMusic(id, message, guilds);
+          func.playMusic(message, guilds);
           fetchVideoInfo(id, (err, {
             title
           }) => {
@@ -45,7 +45,7 @@ module.exports = {
       guilds[message.guild.id].skippers.push(message.author.id);
       guilds[message.guild.id].skipReq++;
       if (guilds[message.guild.id].skipReq >= Math.ceil((guilds[message.guild.id].voiceChannel.members.size - 1) / 2)) {
-        func.skip_song(id, guilds);
+        func.skip_song(guilds);
         message.reply(" your skip has been acknowledged. Skipping now");
       } else {
         message.reply(`${` your skip has been acknolwedged. You need **${Math.ceil((guilds[message.guild.id].voiceChannel.members.size - 1) / 2)}` - skipReq}** more skip votes!`);
@@ -70,7 +70,7 @@ module.exports = {
     message.channel.send(message2);
   },
   stop: function (message, guilds) {
-    func.stop_song(id, guilds);
+    func.stop_song(guilds);
     message.reply('Stopped the Music')
   },
   clear: function (message, guilds) {
