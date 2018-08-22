@@ -32,23 +32,4 @@ module.exports = {
     clstart: function () {
         clbot.setNick(`${functions.branch}`);
     },
-    eval: function (message) {
-        if (message.author.id !== 348065394520621067) return;
-        try {
-            const code = this.args(message);
-            let evaled = eval(code);
-
-            if (typeof evaled !== "string")
-                evaled = require("util").inspect(evaled);
-
-            message.channel.send(func.clean(evaled), {
-                code: "xl"
-            });
-        } catch (err) {
-            message.channel.send(`\`ERROR\` \`\`\`xl\n${func.clean(err)}\n\`\`\``);
-        }
-    },
-    args: function (message) {
-        message.content.split(" ").slice(1).join(" ");
-      },
 }

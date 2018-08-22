@@ -5,6 +5,7 @@ const prefix = func.prefix;
 const usef = require("./modules/useful.js")
 const nousef = require("./modules/nouseful.js")
 const music = require("./modules/music.js")
+const evil = require("./modules/evil.js")
 const setGamef = func.setGame
 const guilds = {};
 
@@ -52,7 +53,7 @@ client.on('message', message => {
     nousef.lol(message);
 
   } else if (lc.startsWith === `${prefix}eval`) {
-    usef.eval(message);
+    evil.eval(message);
 
   } else if (lc.startsWith(`${prefix}play`)) {
     music.play(message, guilds, args);
