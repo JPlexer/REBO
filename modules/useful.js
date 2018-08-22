@@ -7,17 +7,12 @@ module.exports = {
     ping: function (message) {
         embed = new Discord.RichEmbed();
         embed.setColor("#00FFFB");
-        embed.setAuthor(`${functions.branch}`);
-        embed.setDescription(`Ping`);
+        embed.setAuthor(`Ping!`);
         embed.addField(`Your ping is \`${`${Date.now() - message.createdTimestamp}`} ms\``, true);
-        embed.addField("Music Commands", "play\nskip\nstop\nclear\nqueue", true);
-
-
         embed.setFooter(`${functions.branch} by JPlexer ${functions.botver}`);
         message.channel.send("", {
             embed
         });
-        return true;
     },
     help: function (message) {
         embed = new Discord.RichEmbed();
@@ -26,8 +21,6 @@ module.exports = {
         embed.setDescription(`You can use this Commands with ${functions.branch}. Just type ${functions.prefix}[command]`);
         embed.addField("Fun & Play Commands", `ping\npong\npizza\nhelp\nPing ${functions.branch} at the beginning of a Message to chat with him`, true);
         embed.addField("Music Commands", "play\nskip\nstop\nclear\nqueue", true);
-
-
         embed.setFooter(`${functions.branch} by JPlexer ${functions.botver}`);
         message.channel.send("", {
             embed
@@ -35,11 +28,16 @@ module.exports = {
         return true;
     },
     clev: function (message) {
-        clbot.create((err, session) => {
-            clbot.ask(message.content, (err, response) => {
-                message.channel.send(response)
-            });
+        clbot.ask(message.content, (err, response) => {
+        embed = new Discord.RichEmbed();
+        embed.setColor("#00FFFB");
+        embed.setAuthor(`REBO says:`);
+        embed.addField(response);
+        embed.setFooter(`${functions.branch} by JPlexer ${functions.botver}`);
+        message.channel.send("", {
+            embed
         });
+    });
     },
     clstart: function () {
         clbot.setNick(`${functions.branch}`);
