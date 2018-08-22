@@ -67,7 +67,7 @@ module.exports = {
     });
   },
 
-  getID: function (id, str, cb) {
+  getID: function (id, str, cb, message) {
     if (this.isYoutube(str)) {
       cb(getYouTubeID(str));
     } else {
@@ -96,7 +96,7 @@ module.exports = {
       }
     });
   },
-  isYoutube: function (str, guilds) {
+  isYoutube: function (str) {
     return str.toLowerCase().includes("youtube.com");
 },
 }
