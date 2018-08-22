@@ -20,7 +20,7 @@ module.exports = {
       });
     } else {
       isPlaying = true;
-      getID(str, cb, message, args, id => {
+      this.getID(str, cb, message, args, id => {
         guilds[message.guild.id].queue.push(id);
         this.playMusic(id, message, guilds);
         fetchVideoInfo(id, (err, {
