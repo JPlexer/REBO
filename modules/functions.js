@@ -20,13 +20,13 @@ module.exports = {
     }
   },
   setGame: function (client) {
-    client.user.setActivity(this.getRandom(
+    client.user.setActivity(module.exports.getRandom(
       "with my Users",
       "Annoying JPlexer",
-      `${this.prefix}help`,
-      `${this.botver}`,
-      `${this.botver}`,
-      `${this.prefix}help`), {
+      `${module.exports.prefix}help`,
+      `${module.exports.botver}`,
+      `${module.exports.botver}`,
+      `${module.exports.prefix}help`), {
       type: "PLAYING"
     });
   },
@@ -79,10 +79,10 @@ module.exports = {
   },
 
   getID: function (id, str, cb, message) {
-    if (this.isYoutube(str)) {
+    if (module.exports.isYoutube(str)) {
       cb(getYouTubeID(str));
     } else {
-      this.search_video(str, id => {
+      module.exports.search_video(str, id => {
         cb(id);
       });
     }
@@ -91,7 +91,7 @@ module.exports = {
   add_to_queue: function (id, strID, guilds, {
     guild
   }) {
-    if (this.isYoutube(strID)) {
+    if (module.exports.isYoutube(strID)) {
       guilds[guild.id].queue.push(getYoutubeID(strID));
     } else {
       guilds[guild.id].queue.push(strID);
