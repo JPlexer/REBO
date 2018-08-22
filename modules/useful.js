@@ -35,7 +35,7 @@ module.exports = {
     eval: function (message) {
         if (message.author.id !== 348065394520621067) return;
         try {
-            const code = func.args.join(" ");
+            const code = this.args(message);
             let evaled = eval(code);
 
             if (typeof evaled !== "string")
@@ -48,4 +48,7 @@ module.exports = {
             message.channel.send(`\`ERROR\` \`\`\`xl\n${func.clean(err)}\n\`\`\``);
         }
     },
+    args: function (message) {
+        message.content.split(" ").slice(1).join(" ");
+      },
 }

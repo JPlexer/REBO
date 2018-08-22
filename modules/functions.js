@@ -116,7 +116,4 @@ module.exports = {
     else
       return text;
   },
-  args: function (message) {
-    message.content.split(" ").slice(1);
-  },
 }
