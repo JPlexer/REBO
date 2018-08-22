@@ -6,7 +6,6 @@ const getYouTubeID = require("get-youtube-id");
 const yt_api_key = process.env.YT_TOKEN;
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const nusef = require("./nouseful.js")
 module.exports = {
   description: "Functions for Basic Commands",
   getRandom: function () {
@@ -23,13 +22,13 @@ module.exports = {
   prefix: "rebo_",
   botver: "v.1.0.0",
   branch: "REBO",
-  skip_song: function (guilds,{
+  skip_song: function (id, guilds,{
     guild
   }) {
     guilds[guild.id].dispatcher.end();
   },
 
-  stop_song: function (guilds,{
+  stop_song: function (id, guilds,{
     guild
   }) {
     guilds[guild.id].queue.length = 0;
@@ -68,7 +67,7 @@ module.exports = {
     });
   },
 
-  getID: function (str, cb) {
+  getID: function (id, str, cb) {
     if (this.isYoutube(str)) {
       cb(getYouTubeID(str));
     } else {
@@ -78,7 +77,7 @@ module.exports = {
     }
   },
 
-  add_to_queue: function (strID, guilds, {
+  add_to_queue: function (id, strID, guilds, {
     guild
   }) {
     if (this.isYoutube(strID)) {
@@ -88,7 +87,7 @@ module.exports = {
     }
   },
 
-  search_video: function (query, callback, guilds) {
+  search_video: function (id, query, callback, guilds) {
     request(`https://www.googleapis.com/youtube/v3/search?part=id&type=video&q=${encodeURIComponent(query)}&key=${yt_api_key}`, (error, response, body) => {
       const json = JSON.parse(body);
       if (!json.items[0]) callback("3_-a9nVZYjk");
