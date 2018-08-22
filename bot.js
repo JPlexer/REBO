@@ -64,18 +64,18 @@ client.on('message', message => {
     eval(client, message, args2);
 
 } else if (lc.startsWith(`${prefix}play`)) {
-  music.play(message, guilds, args);
+  music.play(message, guilds, args, guild);
 
 } else if (lc.startsWith(`${prefix}skip`)) {
-  music.skip(message, guilds);
+  music.skip(message, guilds, guild);
 
 } else if (lc.startsWith(`${prefix}queue`)) {
-  music.queue(message, guilds);
+  music.queue(message, guilds, guild);
 
 } else if (lc === `${prefix}stop`) {
-  music.stop(message, guilds);
+  music.stop(message, guilds, guild);
 
 } else if (lc.startsWith(`${prefix}clear`)) {
-  music.clear(message, guilds);
+  music.clear(message, guilds, guild);
 }
 });
