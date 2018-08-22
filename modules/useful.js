@@ -45,7 +45,7 @@ module.exports = {
                 code: "xl"
             });
         } catch (err) {
-            message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
+            message.channel.send(`\`ERROR\` \`\`\`xl\n${func.clean(err)}\n\`\`\``);
         }
     },
 }
