@@ -5,10 +5,10 @@ const getYouTubeID = require("get-youtube-id");
 const fetchVideoInfo = require("youtube-info");
 const yt_api_key = process.env.YT_TOKEN;
 module.exports = {
-  play: function(message, guilds) {
+  play: function(message, guilds, args) {
     if (message.member.voiceChannel || guilds[message.guild.id].voiceChannel != null) {
     if (guilds[message.guild.id].queue.length > 0 || guilds[message.guild.id].isPlaying) {
-      this.getID(str, cb, message, args, id => {
+      this.getID(args, id => {
         this.add_to_queue(id, message, strID);
         fetchVideoInfo(id, (err, {
           title
@@ -20,7 +20,7 @@ module.exports = {
       });
     } else {
       isPlaying = true;
-      this.getID(str, cb, message, args, id => {
+      this.getID(args, id => {
         guilds[message.guild.id].queue.push(id);
         this.playMusic(id, message, guilds);
         fetchVideoInfo(id, (err, {

@@ -64,7 +64,7 @@ client.on('message', message => {
     eval(client, message, args2);
 
 } else if (lc.startsWith(`${prefix}play`)) {
-  music.play(message, guilds);
+  music.play(message, guilds, args);
 
 } else if (lc.startsWith(`${prefix}skip`)) {
   music.skip(message, guilds);
