@@ -14,10 +14,8 @@ module.exports = {
             try {
               const code = args.join(" ");
               let evaled = eval(code);
-        ​
               if (typeof evaled !== "string")
                 evaled = require("util").inspect(evaled);
-        ​
               message.channel.send(this.clean(evaled), {code:"xl"});
             } catch (err) {
               message.channel.send(`\`ERROR\` \`\`\`xl\n${this.clean(err)}\n\`\`\``);
