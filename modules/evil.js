@@ -27,16 +27,16 @@ const clean = text => {
     }
 
     let embed = new Discord.RichEmbed()
-    .addField(`Input`, "***```" + code + "```***", true)
-    .addField(`Output`, `\`\`\`python\n${evaled}\`\`\``,)
+    .addField(`:arrow_down:Input`, "***```" + code + "```***", true)
+    .addField(`:arrow_up:Output`, `\`\`\`python\n${evaled}\`\`\``,)
     .setColor("#cb36ed")//
     .setTimestamp()
 
 
 
-message.channel.send(embed).then(msg => {msg.delete(25000)});
+message.channel.send(embed);
 
     } catch (err) {
-    message.channel.send('``Error``\n ```'+ clean(err) +'```').then(msg => {msg.delete(25000)});
+    message.channel.send('``Error``\n ```'+ clean(err) +'```');
     }    
 }
