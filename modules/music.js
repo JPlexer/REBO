@@ -5,7 +5,7 @@ const getYouTubeID = require("get-youtube-id");
 const fetchVideoInfo = require("youtube-info");
 const yt_api_key = process.env.YT_TOKEN;
 module.exports = {
-  play: function(message, guilds, args, guild) {
+  play: function(message, guilds, args) {
     if (message.member.voiceChannel || guilds[message.guild.id].voiceChannel != null) {
     if (guilds[message.guild.id].queue.length > 0 || guilds[message.guild.id].isPlaying) {
       this.getID(args, id => {
@@ -22,7 +22,7 @@ module.exports = {
       isPlaying = true;
       this.getID(args, id => {
         guilds[message.guild.id].queue.push(id);
-        this.playMusic(guilds);
+        this.playMusic(message, guilds);
         fetchVideoInfo(id, (err, {
           title
         }) => {
@@ -37,7 +37,7 @@ module.exports = {
     message.reply(" you need to be in a voice channel!");
 }
   },
-skip: function(message, guilds, guild){
+skip: function(message, guilds){
   if (!guilds[message.guild.id].skippers.includes(message.author.id)) {
     guilds[message.guild.id].skippers.push(message.author.id);
     guilds[message.guild.id].skipReq++;
@@ -51,7 +51,7 @@ skip: function(message, guilds, guild){
     message.reply(" you already voted to skip!");
   }
 },
-queue : function(message, guilds, guild) {
+queue : function(message, guilds) {
   let message2 = "```";
   for (let i = 0; i < guilds[message.guild.id].queueNames.length; i++) {
     const temp = `${i + 1}: ${guilds[message.guild.id].queueNames[i]}${i === 0? "**(Current Song)***" : ""}\n`;
@@ -68,12 +68,12 @@ queue : function(message, guilds, guild) {
   message2 += "```";
   message.channel.send(message2);
 },
-stop: function(message, guilds, guild){
-  guilds[guild.id].queue.length = 0;
-  guilds[guild.id].dispatcher.end();
+stop: function(message, guilds){
+  guilds[message.guild.id].queue.length = 0;
+  guilds[message.guild.id].dispatcher.end();
   message.reply('Stopped the Music')
 },
-clear: function(message, guilds,guild){
+clear: function(message, guilds){
   guilds[message.guild.id].queue = [guilds[message.guild.id].queue.slice(0, 1)];
   guilds[message.guild.id].queueNames = [guilds[message.guild.id].queueNames.slice(0, 1)];
   message.reply("cleared the queue!");
@@ -84,7 +84,7 @@ skip_song: function({
   guilds[guild.id].dispatcher.end();
   },
   
-  playMusic: function(id, message, guilds, guild) {
+  playMusic: function(id, message, guilds) {
   guilds[message.guild.id].voiceChannel = message.member.voiceChannel;
   
   
