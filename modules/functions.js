@@ -69,7 +69,7 @@ module.exports = {
   },
 
   getID: function (str, cb) {
-    if (nusef.isYoutube(str)) {
+    if (this.isYoutube(str)) {
       cb(getYouTubeID(str));
     } else {
       search_video(str, id => {
@@ -81,7 +81,7 @@ module.exports = {
   add_to_queue: function (strID, {
     guilds
   }) {
-    if (nusef.isYoutube(strID)) {
+    if (this.isYoutube(strID)) {
       guilds[guild.id].queue.push(getYoutubeID(strID));
     } else {
       guilds[guild.id].queue.push(strID);
@@ -97,4 +97,7 @@ module.exports = {
       }
     });
   },
+  isYoutube: function (str, guilds) {
+    return str.toLowerCase().includes("youtube.com");
+},
 }
