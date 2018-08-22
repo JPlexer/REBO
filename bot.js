@@ -56,18 +56,18 @@ client.on('message', message => {
     evil.eval(message);
 
   } else if (lc.startsWith(`${prefix}play`)) {
-    music.play(message, guilds, args);
+    music.play(id, message, guilds, args);
 
   } else if (lc.startsWith(`${prefix}skip`)) {
-    music.skip(message, guilds);
+    music.skip(id, message, guilds);
 
   } else if (lc.startsWith(`${prefix}queue`)) {
-    music.queue(message, guilds);
+    music.queue(id, message, guilds);
 
   } else if (lc === `${prefix}stop`) {
-    music.stop(message, guilds);
+    music.stop(id, message, guilds);
 
   } else if (lc.startsWith(`${prefix}clear`)) {
-    music.clear(message, guilds);
+    music.clear(id, message, guilds);
   }
 });
