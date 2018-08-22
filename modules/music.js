@@ -9,7 +9,7 @@ module.exports = {
     if (message.member.voiceChannel || guilds[message.guild.id].voiceChannel != null) {
     if (guilds[message.guild.id].queue.length > 0 || guilds[message.guild.id].isPlaying) {
       this.getID(args, id => {
-        this.add_to_queue(id, message, strID);
+        this.add_to_queue(strID);
         fetchVideoInfo(id, (err, {
           title
         }) => {
@@ -22,7 +22,7 @@ module.exports = {
       isPlaying = true;
       this.getID(args, id => {
         guilds[message.guild.id].queue.push(id);
-        this.playMusic(id, message, guilds);
+        this.playMusic(guilds);
         fetchVideoInfo(id, (err, {
           title
         }) => {
@@ -119,7 +119,7 @@ skip_song: function({
   if (this.isYoutube(str)) {
     cb(getYouTubeID(str));
   } else {
-    this.search_video(query, callback, str, id => {
+    this.search_video(str, id => {
       cb(id);
     });
   }
@@ -128,7 +128,7 @@ skip_song: function({
   add_to_queue: function(strID, {
   guild
   }) {
-  if (this.isYoutube(str, strID)) {
+  if (this.isYoutube(strID)) {
     guilds[guild.id].queue.push(getYoutubeID(strID));
   } else {
     guilds[guild.id].queue.push(strID);
