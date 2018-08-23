@@ -9,7 +9,7 @@ module.exports = {
     if (message.member.voiceChannel || guilds[message.guild.id].voiceChannel != null) {
     if (guilds[message.guild.id].queue.length > 0 || guilds[message.guild.id].isPlaying) {
       this.getID(args, id => {
-        this.add_to_queue(strID);
+        this.add_to_queue(id);
         fetchVideoInfo(id, (err, {
           title
         }) => {
@@ -125,13 +125,13 @@ skip_song: function({
   }
   },
   
-  add_to_queue: function(strID, {
+  add_to_queue: function(id, {
   guild
   }) {
-  if (this.isYoutube(strID)) {
-    guilds[guild.id].queue.push(getYoutubeID(strID));
+  if (this.isYoutube(id)) {
+    guilds[guild.id].queue.push(getYoutubeID(id));
   } else {
-    guilds[guild.id].queue.push(strID);
+    guilds[guild.id].queue.push(id);
   }
   },
   
