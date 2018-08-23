@@ -17,6 +17,6 @@
     "opusscript": "0.0.3",
     "cleverbot.io": "^1.0.4",
     "ytdl-core": "^0.21.1",
-    "util": "^0.11.0"
+    "wikipediajs": "^1.4.0"
   }
 }
