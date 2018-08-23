@@ -106,7 +106,7 @@ skip_song: function(message, guilds) {
         guilds[message.guild.id].voiceChannel.leave();
       } else {
         setTimeout(() => {
-          playMusic(guilds[message.guild.id].queue[0], message);
+          this.playMusic(guilds[message.guild.id].queue[0], message);
         }, 500)
       }
     })
