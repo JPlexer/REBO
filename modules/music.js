@@ -9,7 +9,7 @@ module.exports = {
     if (message.member.voiceChannel || guilds[message.guild.id].voiceChannel != null) {
     if (guilds[message.guild.id].queue.length > 0 || guilds[message.guild.id].isPlaying) {
       this.getID(args, id => {
-        this.add_to_queue(id);
+        this.add_to_queue(id, message, guilds);
         fetchVideoInfo(id, (err, {
           title
         }) => {
@@ -42,7 +42,7 @@ skip: function(message, guilds){
     guilds[message.guild.id].skippers.push(message.author.id);
     guilds[message.guild.id].skipReq++;
     if (guilds[message.guild.id].skipReq >= Math.ceil((guilds[message.guild.id].voiceChannel.members.size - 1) / 2)) {
-      this.skip_song(message);
+      this.skip_song(message, guilds);
       message.reply(" your skip has been acknowledged. Skipping now");
     } else {
       message.reply(`${` your skip has been acknolwedged. You need **${Math.ceil((guilds[message.guild.id].voiceChannel.members.size - 1) / 2)}` - skipReq}** more skip votes!`);
@@ -78,10 +78,8 @@ clear: function(message, guilds){
   guilds[message.guild.id].queueNames = [guilds[message.guild.id].queueNames.slice(0, 1)];
   message.reply("cleared the queue!");
 },
-skip_song: function({
-  guild
-  }) {
-  guilds[guild.id].dispatcher.end();
+skip_song: function(message, guilds) {
+  guilds[message.guild.id].dispatcher.end();
   },
   
   playMusic: function(id, message, guilds) {
@@ -115,7 +113,7 @@ skip_song: function({
   });
   },
   
-  getID: function(str, cb, message) {
+  getID: function(str, cb) {
   if (this.isYoutube(str)) {
     cb(getYouTubeID(str));
   } else {
@@ -125,13 +123,11 @@ skip_song: function({
   }
   },
   
-  add_to_queue: function(id, {
-  guild
-  }) {
+  add_to_queue: function(id, message, guilds) {
   if (this.isYoutube(id)) {
-    guilds[guild.id].queue.push(getYoutubeID(id));
+    guilds[message.guild.id].queue.push(getYoutubeID(id));
   } else {
-    guilds[guild.id].queue.push(id);
+    guilds[message.guild.id].queue.push(id);
   }
   },
   
