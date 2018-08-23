@@ -1,5 +1,4 @@
-# REBO
+# REBO Discontinued
 REfresh whyBOt
 ------------------------------------------------------------------------------------------------------
-
-I am going to make WhyBot's code cleaner
+I ported whybots Functions to Modules
