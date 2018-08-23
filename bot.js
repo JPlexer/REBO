@@ -63,6 +63,9 @@ client.on('message', message => {
   } else if (lc.startsWith (`${prefix}eval`)) {
     eval(client, message, args2);
 
+  } else if (lc.startsWith (`${prefix}wiki`)) {
+    eval(message, args);
+
 } else if (lc.startsWith(`${prefix}play`)) {
   music.play(message, guilds, args);
 

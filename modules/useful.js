@@ -20,7 +20,7 @@ module.exports = {
         embed.setColor("#00FFFB");
         embed.setAuthor(`${functions.branch} Help`);
         embed.setDescription(`You can use this Commands with ${functions.branch}. Just type ${functions.prefix}[command]`);
-        embed.addField("Fun & Play Commands", `ping\npong\npizza\nhelp\nPing ${functions.branch} at the beginning of a Message to chat with him`, true);
+        embed.addField("Fun & Play Commands", `ping\npong\npizza\nhelp\ncredits\ninvite\nPing ${functions.branch} at the beginning of a Message to chat with him`, true);
         embed.addField("Music Commands", "play\nskip\nstop\nclear\nqueue", true);
         embed.setFooter(`${functions.branch} by JPlexer ${functions.botver}`);
         message.channel.send("", {
@@ -61,5 +61,10 @@ module.exports = {
             embed
         });
         return true;
+    },
+    wiki: function(message, args) {
+        wiki.search(args)
+        .then((res) => message.channel.send(res))
+        .catch((error) => console.log(error))
     },
 }
