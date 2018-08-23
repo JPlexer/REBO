@@ -65,7 +65,7 @@ module.exports = {
     },
     wiki: function(message, args) {
         wiki.search(args)
-        .then((res) => message.channel.send(res))
+        .then((result) => console.log(result))
         .catch((error) => console.log(error))
     },
 }
