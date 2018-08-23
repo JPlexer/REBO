@@ -3,6 +3,7 @@ const client = new Discord.Client();
 const functions = require("./functions.js")
 const cleverbot = require("cleverbot.io");
 const clbot = new cleverbot(process.env.CL_USER, process.env.CL_TOKEN);
+const wiki = require('wikipediajs')
 module.exports = {
     ping: function (message) {
         embed = new Discord.RichEmbed();
